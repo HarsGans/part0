@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant browser
+  participant server
+
+  browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+  activate server
+  server-->>browser: HTML document + blank form
+  deactivate server
+
+  browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+  activate server
+  server-->>browser: URL Redirect to /notes
+  deactivate server
+
+  * The POST request already include with the new user note with using action when the user clicked save button
